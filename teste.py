@@ -54,9 +54,9 @@ if not args.get("input", False):
 	
 
 	#vs = VideoStream('rtsp://192.168.4.1/stream')
-	#vs = VideoStream('http://192.168.4.1/stream').start()
-	vs = VideoStream(src=0).start()
-	print('VS :', vs)
+	vs = cv2.VideoCapture('http://192.168.4.1/capture')
+	#vs = VideoStream(src=0).start()
+	#print('VS :', vs)
 	time.sleep(2.0)
 
 # otherwise, grab a reference to the video file
@@ -92,11 +92,13 @@ i = 0
 while True:
 	# grab the next frame and handle if we are reading from either
 	# VideoCapture or VideoStream
-	i = i + 1
-	frame = vs.read()
-	print('FRAME: ', i, ' - Shape: ',  frame.shape)
+	vs = cv2.VideoCapture('http://192.168.4.1/capture')
+	ret, frame = vs.read()
+    
+	#print('FRAME: ', i, ' - Shape: ',  frame)
 	frame = frame[1] if args.get("input", False) else frame
 
+    
 	# if we are viewing a video and we did not grab a frame then we
 	# have reached the end of the video
 	if args["input"] is not None and frame is None:
