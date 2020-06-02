@@ -56,7 +56,7 @@ if not args.get("input", False):
 	#vs = VideoStream('rtsp://192.168.4.1/stream')
 	#vs = VideoStream('http://192.168.4.1/stream').start()
 	vs = VideoStream(src=0).start()
-	print('VS :', vs)
+	#print('VS :', vs)
 	time.sleep(2.0)
 
 # otherwise, grab a reference to the video file
@@ -94,7 +94,7 @@ while True:
 	# VideoCapture or VideoStream
 	i = i + 1
 	frame = vs.read()
-	print('FRAME: ', i, ' - Shape: ',  frame.shape)
+	#print('FRAME: ', i, ' - Shape: ',  frame.shape)
 	frame = frame[1] if args.get("input", False) else frame
 
 	# if we are viewing a video and we did not grab a frame then we

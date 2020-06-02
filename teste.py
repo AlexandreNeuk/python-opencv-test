@@ -54,8 +54,8 @@ if not args.get("input", False):
 	
 
 	#vs = VideoStream('rtsp://192.168.4.1/stream')
-	vs = cv2.VideoCapture('http://192.168.4.1/capture')
-	#vs = VideoStream(src=0).start()
+	#vs = cv2.VideoCapture('http://192.168.4.1/capture')
+	vs = VideoStream(src=0).start()
 	#print('VS :', vs)
 	time.sleep(2.0)
 
@@ -92,7 +92,8 @@ i = 0
 while True:
 	# grab the next frame and handle if we are reading from either
 	# VideoCapture or VideoStream
-	vs = cv2.VideoCapture('http://192.168.4.1/capture')
+	#vs = cv2.VideoCapture('http://192.168.4.1/capture')
+	#frame = vs.read()
 	ret, frame = vs.read()
     
 	#print('FRAME: ', i, ' - Shape: ',  frame)
